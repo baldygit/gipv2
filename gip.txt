@@ -1,0 +1,104 @@
+#	Git in Practice	v2
+
+##	Mike McQuaid
+
+###	Manning, 2014
+
+####	§1.3	git init
+
+Script started on Thu Feb 27 12:11:31 2014
+bash-3.2$ hostname; pwd
+mbpcst1-epcc.epcc.ed.ac.uk
+/Users/smcgeeve
+
+bash-3.2$ ls -lrt proj/git
+total 12016
+-rw-r--r--  1 smcgeeve  ED\Domain Users  197936 Feb 26  2011 progit-toc.pdf
+-rw-r--r--  1 smcgeeve  ED\Domain Users   88730 Feb 26  2011 progit-2-9.pdf
+[snip]
+drwxr-xr-x  6 smcgeeve  ED\Domain Users     204 Feb 27 12:10 GitInPractice
+
+
+bash-3.2$ cd proj/git
+bash-3.2$ git init gipv2
+Initialized empty Git repository in /Users/smcgeeve/proj/git/gipv2/.git/
+bash-3.2$ ls -lrt
+total 12016
+-rw-r--r--  1 smcgeeve  ED\Domain Users  197936 Feb 26  2011 progit-toc.pdf
+-rw-r--r--  1 smcgeeve  ED\Domain Users   88730 Feb 26  2011 progit-2-9.pdf
+[snip]
+drwxr-xr-x  6 smcgeeve  ED\Domain Users     204 Feb 27 12:10 GitInPractice
+drwxr-xr-x  3 smcgeeve  ED\Domain Users     102 Feb 27 12:12 gipv2
+
+
+bash-3.2$ ls -al gipv2
+total 0
+drwxr-xr-x   3 smcgeeve  ED\Domain Users   102 Feb 27 12:12 .
+drwxr-xr-x  55 smcgeeve  ED\Domain Users  1870 Feb 27 12:12 ..
+drwxr-xr-x  10 smcgeeve  ED\Domain Users   340 Feb 27 12:12 .git
+
+
+bash-3.2$ cd gipv2
+bash-3.2$ cp -p ../GitInPractice/gip.txt .
+bash-3.2$ ls -l
+total 16
+-rw-r--r--  1 smcgeeve  ED\Domain Users  5290 Jan 21 12:01 gip.txt
+
+
+bash-3.2$ # edit gip.txt - bare file
+bash-3.2$ ls -lrt
+total 8
+-rw-r--r--  1 smcgeeve  ED\Domain Users  1334 Feb 27 12:19 gip.txt
+
+
+bash-3.2$ cd ..
+bash-3.2$ pwd; find gipv2
+/Users/smcgeeve/proj/git
+gipv2
+gipv2/.git
+gipv2/.git/branches
+gipv2/.git/config
+gipv2/.git/description
+gipv2/.git/HEAD
+gipv2/.git/hooks
+gipv2/.git/hooks/applypatch-msg.sample
+gipv2/.git/hooks/commit-msg.sample
+gipv2/.git/hooks/post-update.sample
+gipv2/.git/hooks/pre-applypatch.sample
+gipv2/.git/hooks/pre-commit.sample
+gipv2/.git/hooks/pre-push.sample
+gipv2/.git/hooks/pre-rebase.sample
+gipv2/.git/hooks/prepare-commit-msg.sample
+gipv2/.git/hooks/update.sample
+gipv2/.git/info
+gipv2/.git/info/exclude
+gipv2/.git/objects
+gipv2/.git/objects/info
+gipv2/.git/objects/pack
+gipv2/.git/refs
+gipv2/.git/refs/heads
+gipv2/.git/refs/tags
+gipv2/gip.txt
+
+
+
+##	§1.4.1	git add - stage (update index) with new / changed file contents
+
+bash-3.2$ cd gipv2
+bash-3.2$ git add .
+bash-3.2$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   gip.txt
+
+
+
+##	§1.4.2	git commit - update repository with staged changes from index
+
+
+
