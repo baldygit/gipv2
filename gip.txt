@@ -225,8 +225,8 @@ Author: Baldy Git <erasmios@pobox.com>
 Date:   Thu Feb 27 15:48:27 2014 +0000
 
     §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
-[K[?1l>bash-3.2$ git diff master~1 master
-[?1h=diff --git a/gip.txt b/gip.txt
+bash-3.2$ git diff master~1 master
+diff --git a/gip.txt b/gip.txt
 index 907031e..4af146d 100644
 --- a/gip.txt
 +++ b/gip.txt
@@ -286,4 +286,124 @@ index 907031e..4af146d 100644
 +
  
  
-bash-3.2$ 
+bash-3.2$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   gip.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+bash-3.2$ git add .
+bash-3.2$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   gip.txt
+#
+bash-3.2$ git commit -m '§1.6.1 - git diff'
+[master 94b641c] §1.6.1 - git diff
+ 1 file changed, 135 insertions(+)
+bash-3.2$ git status
+# On branch master
+nothing to commit, working directory clean
+
+
+
+
+##	§1.6.4	git diff options (--stat, --word-diff, rev-parse)
+
+bash-3.2$ cd proj/git/gipv2
+bash-3.2$ git log
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:11:05 2014 +0000
+
+    §1.6.1 - git diff
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:58:26 2014 +0000
+
+    §1.5.3 git log
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:48:27 2014 +0000
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+
+bash-3.2$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   gip.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+bash-3.2$ git diff --stat master~1 master
+gip.txt | 135 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 135 insertions(+)
+
+
+bash-3.2$ git diff --word-diff master~1 master
+diff --git a/gip.txt b/gip.txt
+index 4af146d..7bf29c3 100644
+--- a/gip.txt
++++ b/gip.txt
+@@ -151,4 +151,139 @@ Date:   Thu Feb 27 15:48:27 2014 +0000
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+
+{+bash-3.2$ ls -lrt+}
+{+total 8+}
+{+-rw-r--r--  1 smcgeeve  ED\Domain Users  3763 Feb 27 15:57 gip.txt+}
+{+bash-3.2$ # file changed since last commit? Let's check!+}
+{+bash-3.2$ git status+}
+{+# On branch master+}
+{+# Changes not staged for commit:+}
+{+#   (use "git add <file>..." to update what will be committed)+}
+{+#   (use "git checkout -- <file>..." to discard changes in working directory)+}
+{+#+}
+{+#     modified:   gip.txt+}
+{+#+}
+{+no changes added to commit (use "git add" and/or "git commit -a")+}
+{+bash-3.2$ git add .+}
+{+bash-3.2$ git status+}
+{+# On branch master+}
+{+# Changes to be committed:+}
+{+#   (use "git reset HEAD <file>..." to unstage)+}
+{+#+}
+{+#     modified:   gip.txt+}
+{+#+}
+{+bash-3.2$ # staging / index now current wrt wip file, so commit+}
+{+bash-3.2$ git commit -m '§1.5.3 git log '+}
+{+[master 9b695d0] §1.5.3 git log+}
+{+ 1 file changed, 50 insertions(+)+}
+{+bash-3.2$ git status+}
+{+# On branch master+}
+{+nothing to commit, working directory clean+}
+
+
+####	[snip]
+
+
+bash-3.2$ cd proj/git/gipv2
+
+bash-3.2$ git rev-parse master
+94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+
+
+bash-3.2$ git rev-parse master~1
+9b695d0ff71fb619f0f8c380434ba0dea7e32325
+
+
+bash-3.2$ git rev-parse 9b695d0
+9b695d0ff71fb619f0f8c380434ba0dea7e32325
+
