@@ -407,3 +407,75 @@ bash-3.2$ git rev-parse master~1
 bash-3.2$ git rev-parse 9b695d0
 9b695d0ff71fb619f0f8c380434ba0dea7e32325
 
+
+##	log/2014-03-06.txt
+
+####	§2.0	[github - create new repo]
+
+
+####	§2.1	git remote add
+
+bash-3.2$ git remote add origin https://github.com/baldygit/gipv2.git
+
+bash-3.2$ git remote --verbose
+origin	https://github.com/baldygit/gipv2.git (fetch)
+origin	https://github.com/baldygit/gipv2.git (push)
+
+bash-3.2$ git remote show
+origin
+
+
+####	§2.2	git push
+
+bash-3.2$ git push --set-upstream origin master
+Username for 'https://github.com': baldygit
+Password for 'https://baldygit@github.com': 
+Counting objects: 13, done.
+Delta compression using up to 2 threads.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Writing objects:   7% (1/13)   Writing objects:  15% (2/13)   Writing objects:  23% (3/13)   Writing objects:  30% (4/13)   Writing objects:  38% (5/13)   Writing objects:  38% (5/13), 1.07 MiB | 306.00 KiB/s   Writing objects:  38% (5/13), 1.31 MiB | 328.00 KiB/s   Writing objects:  38% (5/13), 2.00 MiB | 397.00 KiB/s   Writing objects:  38% (5/13), 2.37 MiB | 427.00 KiB/s   Writing objects:  46% (6/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  53% (7/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  61% (8/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  69% (9/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  76% (10/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  84% (11/13), 2.75 MiB | 448.00 KiB/s   Writing objects:  92% (12/13), 2.75 MiB | 448.00 KiB/s   Writing objects: 100% (13/13), 2.75 MiB | 448.00 KiB/s   Writing objects: 100% (13/13), 2.83 MiB | 448.00 KiB/s, done.
+Total 13 (delta 3), reused 0 (delta 0)
+To https://github.com/baldygit/gipv2.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+
+####	§2.3	git clone
+
+bash-3.2$ hostname; pwd; ls -alrt gipv2
+mbpcst1-epcc.epcc.ed.ac.uk
+/Users/smcgeeve/proj/git
+total 6664
+-rw-r--r--@  1 smcgeeve  ED\Domain Users  3393440 Feb  6 17:46 Git_in_Practice_v2_MEAP.pdf
+drwxr-xr-x  55 smcgeeve  ED\Domain Users     1870 Feb 27 12:12 ..
+-rw-r--r--   1 smcgeeve  ED\Domain Users    10784 Feb 27 16:30 gip.txt
+drwxr-xr-x   6 smcgeeve  ED\Domain Users      204 Mar  6 11:15 .
+drwxr-xr-x  13 smcgeeve  ED\Domain Users      442 Mar  6 11:34 .git
+-rw-r--r--   1 smcgeeve  ED\Domain Users      196 Mar  6 11:39 typescript
+
+bash-3.2$ rm -fR ./givpv2
+bash-3.2$ rmdir ./gipv2
+rmdir: ./gipv2: No such file or directory
+
+bash-3.2$ git clone https://github.com/baldygit/gipv2.git 
+Cloning into 'gipv2'...
+remote: Counting objects: 13, done.
+remote: Compressing objects:  14% (1/7)   remote: Compressing objects:  28% (2/7)   remote: Compressing objects:  42% (3/7)   remote: Compressing objects:  57% (4/7)   remote: Compressing objects:  71% (5/7)   remote: Compressing objects:  85% (6/7)   remote: Compressing objects: 100% (7/7)   remote: Compressing objects: 100% (7/7), done.
+Unpacking objects:   7% (1/13)   Unpacking objects:  15% (2/13)   Unpacking objects:  23% (3/13)   Unpacking objects:  30% (4/13)   Unpacking objects:  38% (5/13)   remote: Total 13 (delta 3), reused 13 (delta 3)
+Unpacking objects:  46% (6/13)   Unpacking objects:  53% (7/13)   Unpacking objects:  61% (8/13)   Unpacking objects:  69% (9/13)   Unpacking objects:  76% (10/13)   Unpacking objects:  84% (11/13)   Unpacking objects:  92% (12/13)   Unpacking objects: 100% (13/13)   Unpacking objects: 100% (13/13), done.
+Checking connectivity... done
+
+bash-3.2$ ls -alrt gipv2
+total 6656
+drwxr-xr-x  55 smcgeeve  ED\Domain Users     1870 Mar  6 11:41 ..
+-rw-r--r--   1 smcgeeve  ED\Domain Users    10784 Mar  6 11:41 gip.txt
+-rw-r--r--   1 smcgeeve  ED\Domain Users  3393440 Mar  6 11:41 Git_in_Practice_v2_MEAP.pdf
+drwxr-xr-x  13 smcgeeve  ED\Domain Users      442 Mar  6 11:41 .git
+drwxr-xr-x   5 smcgeeve  ED\Domain Users      170 Mar  6 11:41 .
+bash-3.2$ 
+
+bash-3.2$ git remote --verbose
+origin	https://github.com/baldygit/gipv2.git (fetch)
+origin	https://github.com/baldygit/gipv2.git (push)
+
+
