@@ -565,3 +565,237 @@ Updating f69d91d..a84ec51
 Fast-forward
  gip.txt | 72 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 72 insertions(+)
+
+
+####	§2.5	git fetch
+
+bash-3.2$ cd proj/git/gipv2
+
+bash-3.2$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   gip.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+bash-3.2$ git add gip.txt
+
+bash-3.2$ git commit -m "§2.4 git pull"
+[master 88fc7e3] §2.4 git pull
+ 1 file changed, 86 insertions(+)
+
+bash-3.2$ git push 
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': baldygit
+Password for 'https://baldygit@github.com': 
+Counting objects: 5, done.
+Delta compression using up to 2 threads.
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 1.15 KiB | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://github.com/baldygit/gipv2.git
+   a84ec51..88fc7e3  master -> master
+
+bash-3.2$ # (local) gipv2 and (remote) github repos now have latest commit - giptest doesn't!
+
+bash-3.2$ pwd
+bash-3.2$ proj/git/gipv2
+bash-3.2$ git log
+commit 88fc7e3c64d3f63ed901ec21c39dbd16d1faea66
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Mon Mar 10 12:46:56 2014 +0000
+
+    §2.4 git pull
+
+commit a84ec5126915bd7c8f03d92fe2c6f0582c5a469e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Fri Mar 7 11:25:30 2014 +0000
+
+    log/2014-03-06.txt §2.0 - §2.3
+
+commit f69d91d49a35c7837caffaa9f95625b9dfd84ccb
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:31:46 2014 +0000
+
+    §1.6.4 - git diff options: stat / word-diff / rev-parse; add v2 pdf
+
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:11:05 2014 +0000
+
+    §1.6.1 - git diff
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:58:26 2014 +0000
+
+    §1.5.3 git log
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:48:27 2014 +0000
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+bash-3.2$ cd ../giptest
+bash-3.2$ git log
+commit a84ec5126915bd7c8f03d92fe2c6f0582c5a469e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Fri Mar 7 11:25:30 2014 +0000
+
+    log/2014-03-06.txt §2.0 - §2.3
+
+commit f69d91d49a35c7837caffaa9f95625b9dfd84ccb
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:31:46 2014 +0000
+
+    §1.6.4 - git diff options: stat / word-diff / rev-parse; add v2 pdf
+
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:11:05 2014 +0000
+
+    §1.6.1 - git diff
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:58:26 2014 +0000
+
+    §1.5.3 git log
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:48:27 2014 +0000
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+bash-3.2$ # gipv2 & remote repo both have latest commit, giptest doesn't
+
+bash-3.2$ pwd
+/Users/smcgeeve/proj/git/giptest
+bash-3.2$ git fetch
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (1/1)   remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2)
+Unpacking objects:  33% (1/3)   Unpacking objects:  66% (2/3)   Unpacking objects: 100% (3/3)   Unpacking objects: 100% (3/3), done.
+From https://github.com/baldygit/gipv2
+   a84ec51..88fc7e3  master     -> origin/master
+
+bash-3.2$ git log
+commit a84ec5126915bd7c8f03d92fe2c6f0582c5a469e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Fri Mar 7 11:25:30 2014 +0000
+
+    log/2014-03-06.txt §2.0 - §2.3
+
+commit f69d91d49a35c7837caffaa9f95625b9dfd84ccb
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:31:46 2014 +0000
+
+    §1.6.4 - git diff options: stat / word-diff / rev-parse; add v2 pdf
+
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:11:05 2014 +0000
+
+    §1.6.1 - git diff
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:58:26 2014 +0000
+
+    §1.5.3 git log
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:48:27 2014 +0000
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+bash-3.2$ git status
+# On branch master
+# Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+nothing to commit, working directory clean
+
+bash-3.2$ ls -lrt
+total 6664
+-rw-r--r--  1 smcgeeve  ED\Domain Users  3393440  7 Mar 11:21 Git_in_Practice_v2_MEAP.pdf
+-rw-r--r--  1 smcgeeve  ED\Domain Users    15026  7 Mar 11:24 gip.txt
+bash-3.2$ git remote --verbose
+origin	https://github.com/baldygit/gipv2.git (fetch)
+origin	https://github.com/baldygit/gipv2.git (push)
+
+bash-3.2$ # git fetch downloads, but doesn't commit/merge, remote changes; to merge, use 'git pull' == git fetch + git merge
+
+bash-3.2$ git pull
+Updating a84ec51..88fc7e3
+Fast-forward
+ gip.txt | 86 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
+
+bash-3.2$ ls -lrt
+total 6672
+-rw-r--r--  1 smcgeeve  ED\Domain Users  3393440  7 Mar 11:21 Git_in_Practice_v2_MEAP.pdf
+-rw-r--r--  1 smcgeeve  ED\Domain Users    18471 10 Mar 12:57 gip.txt
+bash-3.2$ 
+bash-3.2$ git status
+# On branch master
+nothing to commit, working directory clean
+bash-3.2$ git log
+commit 88fc7e3c64d3f63ed901ec21c39dbd16d1faea66
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Mon Mar 10 12:46:56 2014 +0000
+
+    §2.4 git pull
+
+commit a84ec5126915bd7c8f03d92fe2c6f0582c5a469e[m
+Author: Baldy Git <erasmios@pobox.com>[m
+Date:   Fri Mar 7 11:25:30 2014 +0000[m
+
+    log/2014-03-06.txt §2.0 - §2.3[m
+
+commit f69d91d49a35c7837caffaa9f95625b9dfd84ccb[m
+Author: Baldy Git <erasmios@pobox.com>[m
+Date:   Thu Feb 27 16:31:46 2014 +0000[m
+
+    §1.6.4 - git diff options: stat / word-diff / rev-parse; add v2 pdf[m
+
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e[m
+Author: Baldy Git <erasmios@pobox.com>[m
+Date:   Thu Feb 27 16:11:05 2014 +0000[m
+
+    §1.6.1 - git diff[m
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325[m
+Author: Baldy Git <erasmios@pobox.com>[m
+Date:   Thu Feb 27 15:58:26 2014 +0000[m
+
+    §1.5.3 git log[m
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494[m
+Author: Baldy Git <erasmios@pobox.com>[m
+Date:   Thu Feb 27 15:48:27 2014 +0000[m
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit[m
+
+bash-3.2$ # (local) giptest now has same state as (local) gipv2 and (remote) github repos
+
+
