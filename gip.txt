@@ -799,3 +799,87 @@ Date:   Thu Feb 27 15:48:27 2014 +0000[m
 bash-3.2$ # (local) giptest now has same state as (local) gipv2 and (remote) github repos
 
 
+
+####	§2.6	git branch
+
+bash-3.2$ hostname; pwd
+mbpcst2-epcc.epcc.ed.ac.uk
+/Users/smcgeeve/proj/git
+bash-3.2$ cd gipv2
+
+bash-3.2$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+bash-3.2$ git log
+commit 209d51fd19e410eb1c99200ca20d0b6b1af5ca20
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Mon Mar 10 13:14:13 2014 +0000
+
+    §2.5 git fetch
+
+commit 88fc7e3c64d3f63ed901ec21c39dbd16d1faea66
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Mon Mar 10 12:46:56 2014 +0000
+
+    §2.4 git pull
+
+commit a84ec5126915bd7c8f03d92fe2c6f0582c5a469e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Fri Mar 7 11:25:30 2014 +0000
+
+    log/2014-03-06.txt §2.0 - §2.3
+
+commit f69d91d49a35c7837caffaa9f95625b9dfd84ccb
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:31:46 2014 +0000
+
+    §1.6.4 - git diff options: stat / word-diff / rev-parse; add v2 pdf
+
+commit 94b641c7f448cdd4c1708a2bec5bff9f2030e98e
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 16:11:05 2014 +0000
+
+    §1.6.1 - git diff
+
+commit 9b695d0ff71fb619f0f8c380434ba0dea7e32325
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:58:26 2014 +0000
+
+    §1.5.3 git log
+
+commit 65b78a23a8026220ee5b5b27b224a3800a637494
+Author: Baldy Git <erasmios@pobox.com>
+Date:   Thu Feb 27 15:48:27 2014 +0000
+
+    §1.3 - git init; §1.4.1 - git add; §1.4.2 - git commit
+
+bash-3.2$ git branch chapter-two
+bash-3.2$ 
+bash-3.2$ git branch
+  chapter-two
+* master
+
+
+
+####	§2.7	git checkout (branch)
+
+bash-3.2$ git checkout chapter-two
+Switched to branch 'chapter-two'
+
+bash-3.2$ git branch
+* chapter-two
+  master
+
+
+####	§2.8	git push (branch)
+
+bash-3.2$ git push --set-upstream origin chapter-two
+Username for 'https://github.com': baldygit
+Password for 'https://baldygit@github.com': 
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/baldygit/gipv2.git
+ * [new branch]      chapter-two -> chapter-two
+Branch chapter-two set up to track remote branch chapter-two from origin.
+
