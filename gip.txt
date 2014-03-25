@@ -1003,3 +1003,44 @@ Your branch is up-to-date with 'origin/master'.
 
 nothing to commit, working directory clean
 
+
+####	§2.10 git push --delete origin <branch>
+
+bash-3.2$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+
+bash-3.2$ git branch
+  chapter-two
+* master
+
+bash-3.2$ git checkout master; git branch
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+  chapter-two
+* master
+
+bash-3.2$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Everything up-to-date
+
+bash-3.2$ git push --delete origin chapter-two
+To https://github.com/baldygit/gipv2.git
+ - [deleted]         chapter-two
+
+
