@@ -1044,3 +1044,20 @@ To https://github.com/baldygit/gipv2.git
  - [deleted]         chapter-two
 
 
+####	§2.11 git branch --delete <local-branch>
+
+bash-3.2$ git checkout master
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+
+bash-3.2$ git branch; git status
+  chapter-two
+* master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+
+bash-3.2$ git branch --delete chapter-two
+Deleted branch chapter-two (was 31d2133).
+
